@@ -17,7 +17,6 @@ public class StrafeByTime extends CommandBase {
     private Mecanum mecanum;
 
     // ASSETS
-    private final Pose2d targetPose;// The target position and heading
     private double speed;
     protected Action action;
 
@@ -29,22 +28,10 @@ public class StrafeByTime extends CommandBase {
     // FTC DASHBOARD
     private FtcDashboard dashboard;
 
-    // Constructor to initialize the command
-    public StrafeByTime(Callisto robot, Pose2d targetPose) {
+
+    public StrafeByTime(Callisto robot, double timeout, double speed) {
         this.robot = robot;
         this.mecanum = robot.mecanum;
-        this.targetPose = targetPose;
-
-        // default timeout
-        timer = new Timing.Timer((long)Constants.DEFAULT_TIMEOUT);
-
-        addRequirements(mecanum);
-    }
-
-    public StrafeByTime(Callisto robot, Pose2d targetPose, double timeout, double speed) {
-        this.robot = robot;
-        this.mecanum = robot.mecanum;
-        this.targetPose = targetPose;
         this.dashboard = FtcDashboard.getInstance();
         this.speed = speed;
 

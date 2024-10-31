@@ -19,6 +19,7 @@ import org.firstinspires.ftc.teamcode.commands.LowerLift;
 import org.firstinspires.ftc.teamcode.commands.RaiseLift;
 import org.firstinspires.ftc.teamcode.commands.RaiseShoulder;
 import org.firstinspires.ftc.teamcode.commands.MoveToPose;
+import org.firstinspires.ftc.teamcode.commands.StrafeByTime;
 import org.firstinspires.ftc.teamcode.subsystems.Arm;
 import org.firstinspires.ftc.teamcode.subsystems.Blinkin;
 import org.firstinspires.ftc.teamcode.subsystems.Lift;
@@ -198,10 +199,7 @@ public class Callisto extends Robot {
         if (isRed){
             // RED-LEFT
             if (left){
-                new SequentialCommandGroup(
-                        new MoveToPose(this, new Pose2d(new Vector2d(0,-65), 0), 4),
-                        new MoveToPose(this, new Pose2d(new Vector2d(0,-20), 0), 4)
-                ).schedule();
+                new StrafeByTime(this, 4, .5).schedule();
             }
             // RED-RIGHT
             else{
